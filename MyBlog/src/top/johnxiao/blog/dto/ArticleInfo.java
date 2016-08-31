@@ -19,7 +19,7 @@ public class ArticleInfo implements Serializable{
 //	文章状态
 	private int articleState;
 //	文章图片
-	private int articlePic;
+	private String articlePic;
 //	是否删除,软删除
 	private boolean articleIsDel;
 	
@@ -38,9 +38,9 @@ public ArticleInfo() {}
 
 public ArticleInfo(int articleId, String articleTitle, Timestamp articleDate,
 		String articleContent, int articlePeople, int articleState,
-		int articlePic, boolean articleIsDel, List<TypeArticle> typeArticles,
-		List<DiscussInfo> discusss, List<CollectInfo> collects,
-		List<LabelArticle> labelArticles) {
+		String articlePic, boolean articleIsDel,
+		List<TypeArticle> typeArticles, List<DiscussInfo> discusss,
+		List<CollectInfo> collects, List<LabelArticle> labelArticles) {
 	this.articleId = articleId;
 	this.articleTitle = articleTitle;
 	this.articleDate = articleDate;
@@ -116,12 +116,12 @@ public void setArticleState(int articleState) {
 }
 
 
-public int getArticlePic() {
+public String getArticlePic() {
 	return articlePic;
 }
 
 
-public void setArticlePic(int articlePic) {
+public void setArticlePic(String articlePic) {
 	this.articlePic = articlePic;
 }
 
@@ -175,5 +175,17 @@ public void setLabelArticles(List<LabelArticle> labelArticles) {
 	this.labelArticles = labelArticles;
 }
 
+
+@Override
+public String toString() {
+	return "ArticleInfo [articleId=" + articleId + ", articleTitle="
+			+ articleTitle + ", articleDate=" + articleDate
+			+ ", articleContent=" + articleContent + ", articlePeople="
+			+ articlePeople + ", articleState=" + articleState
+			+ ", articlePic=" + articlePic + ", articleIsDel=" + articleIsDel
+			+ ", typeArticles=" + typeArticles + ", discusss=" + discusss
+			+ ", collects=" + collects + ", labelArticles=" + labelArticles
+			+ "]";
+}
 	
 }

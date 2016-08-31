@@ -25,6 +25,10 @@ public class TypeInfo implements Serializable {
 	
 public TypeInfo() {}
 
+public TypeInfo(Integer typeId) {
+	this.typeId = typeId;
+}
+
 public TypeInfo(Integer typeId, AdminInfo admininfo, TypeInfo typeinfo,
 		String typeName, String typeDesc, Boolean typeIsDel,
 		List<TypeInfo> types, List<TypeArticle> typeArticles) {
@@ -101,6 +105,15 @@ public List<TypeArticle> getTypeArticles() {
 public void setTypeArticles(List<TypeArticle> typeArticles) {
 	this.typeArticles = typeArticles;
 }
+
+@Override
+public String toString() {
+	return "TypeInfo [typeId=" + typeId + ", admininfo=" + admininfo
+			+ ", typeinfo=" + typeinfo + ", typeName=" + typeName
+			+ ", typeDesc=" + typeDesc + ", typeIsDel=" + typeIsDel
+			+ ", types=" + types + ", typeArticles=" + typeArticles + "]";
+}
+
 
 	
 }

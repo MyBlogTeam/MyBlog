@@ -27,6 +27,10 @@ public class AdminInfo implements Serializable{
 	
 	public AdminInfo(){}
 
+	public AdminInfo(int adminId) {
+		this.adminId = adminId;
+	}
+
 	public AdminInfo(int adminId, String adminName, String adminPwd,
 			String adminTel, String adminEmail, String adminPic,
 			boolean adminIsDel, List<LinkInfo> links, List<NoticeInfo> notices,
