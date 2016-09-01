@@ -49,7 +49,7 @@ public class AdminDao implements IAdminDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean bool=false;
-		String sql="update AdminInfo set adminName=?,adminPwd=?,adminTel=?,adminEmail=?,adminPic=?,adminIsDel=?";
+		String sql="update AdminInfo set adminName=?,adminPwd=?,adminTel=?,adminEmail=?,adminPic=?,adminIsDel=? where adminId=?";
 		conn= DBUtil.getConn();
 		try {
 			ps=conn.prepareStatement(sql);
@@ -59,6 +59,7 @@ public class AdminDao implements IAdminDao{
 			ps.setString(4, model.getAdminEmail());
 			ps.setString(5, model.getAdminPic());
 			ps.setBoolean(6, model.getAdminIsDel());
+			ps.setInt(7, model.getAdminId());
 			int i = ps.executeUpdate();
 			if(i>0){
 				bool=true;
@@ -103,7 +104,7 @@ public class AdminDao implements IAdminDao{
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		AdminInfo admin=null;
-		String sql="select * from AdminInfo where adminId=?";
+		String sql="select * from AdminInfo where adminIsDel=0 and adminId=?";
 		try {
 			conn=DBUtil.getConn();
 			ps=conn.prepareStatement(sql);
