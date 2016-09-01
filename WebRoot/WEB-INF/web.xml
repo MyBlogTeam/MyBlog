@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>MyBlog</display-name>
+  <!-- 数据库连接信息   -->
+   <context-param>
+  	<param-name>DRIVER</param-name>
+  	<param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>URL</param-name>
+  	<param-value>jdbc:mysql://localhost:3306/myblog</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>USER</param-name>
+  	<param-value>xiaowei</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>PWD</param-name>
+  	<param-value>xiaowei</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>MAXACTIVE</param-name>
+  	<param-value>20</param-value>
+  </context-param>
+  
+  <!-- servlet配置 -->
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>top.johnxiao.blog.servlets.AdminServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/AdminServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 过滤器设置 -->
+  
+  <filter>
+  	<filter-name>EncodingFilter</filter-name>
+ 	 <filter-class>top.johnxiao.blog.filters.EncodingFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+ 	<filter-name>EncodingFilter</filter-name>
+ 	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 欢迎页设置 -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
