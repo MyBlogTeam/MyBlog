@@ -201,6 +201,7 @@ public class TypeArticleDao implements ITypeArticleDao{
 			while(rs.next()){
 				TypeArticle ta=new TypeArticle();
 				ta.setAtId(rs.getInt("atId"));
+				ta.setAtIsDel(rs.getBoolean("atIsDel"));
 				ta.setTypeinfo(typeDao.selectById(rs.getInt("typeId")));
 				ta.setArticleinfo(articleDao.selectById(rs.getInt("articleId")));
 				list.add(ta);

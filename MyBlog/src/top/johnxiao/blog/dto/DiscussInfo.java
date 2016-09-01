@@ -96,7 +96,7 @@ public void setDiscusss(List<DiscussInfo> discusss) {
 }
 
 
-public boolean isDiscussIsDel() {
+public boolean getDiscussIsDel() {
 	return discussIsDel;
 }
 
