@@ -47,13 +47,14 @@ public class LabelArticleDao implements ILabelArticleDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean bool=false;
-		String sql="update label_article set articleId=?,labelId=?,laIsDel=?";
+		String sql="update label_article set articleId=?,labelId=?,laIsDel=? where LaId=?";
 		conn= DBUtil.getConn();
 		try {
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, model.getArticle().getArticleId());
 			ps.setInt(2, model.getLabel().getLabelId());
 			ps.setBoolean(3, model.getLaIsDel());		
+			ps.setInt(4, model.getLaId());
 			int i = ps.executeUpdate();
 			if(i>0){
 				bool=true;

@@ -51,7 +51,7 @@ public class MessageDao implements IMessageDao{
 		PreparedStatement ps=null;
 		boolean bool=false;
 		try {
-			String sql="update MessageInfo set userId=?,Use_userId=?,messageContent=?,messageDate=?,msgIsDel=?";
+			String sql="update MessageInfo set userId=?,Use_userId=?,messageContent=?,messageDate=?,msgIsDel=? where messageId=?";
 			conn= DBUtil.getConn();
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, model.getSender().getUserId());
@@ -59,6 +59,7 @@ public class MessageDao implements IMessageDao{
 			ps.setString(3, model.getMessageContent());
 			ps.setTimestamp(4, model.getMessageDate());
 			ps.setBoolean(6, model.getMsgIsDel());
+			ps.setInt(6, model.getMessageId());
 			int i = ps.executeUpdate();
 			if(i>0){
 				bool=true;

@@ -46,13 +46,14 @@ public class LabelDao implements ILabelDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean flag=false;
-		String sql="update labelInfo set userId=?,labelName=?,lableIsDel=?";
+		String sql="update labelInfo set userId=?,labelName=?,lableIsDel=? where labelId=?";
 		conn= DBUtil.getConn();
 		try {
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, model.getUser().getUserId());
 			ps.setString(2, model.getLabelName());
 			ps.setBoolean(3, model.getLabelIsDel());
+			ps.setInt(4, model.getLabelId());
 			int i = ps.executeUpdate();
 			if(i>0){
 				flag=true;

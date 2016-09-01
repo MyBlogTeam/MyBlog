@@ -50,7 +50,7 @@ public class CollectDao implements ICollectDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean flag=false;
-		String sql="update collectinfo set userId=?,articleId=?,collectDate=?,collectIsDel=?";
+		String sql="update collectinfo set userId=?,articleId=?,collectDate=?,collectIsDel=? where collectId";
 		conn= DBUtil.getConn();
 		try {
 			ps=conn.prepareStatement(sql);
@@ -58,6 +58,7 @@ public class CollectDao implements ICollectDao{
 			ps.setInt(2, model.getArticle().getArticleId());
 			ps.setTimestamp(3, model.getCollectDate());
 			ps.setBoolean(4, model.getCollectIsDel());
+			ps.setInt(5, model.getCollectId());
 			int i = ps.executeUpdate();
 			if(i>0){
 				flag=true;
