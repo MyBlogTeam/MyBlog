@@ -126,5 +126,13 @@ public class AdminInfo implements Serializable{
 	public void setTypes(List<TypeInfo> types) {
 		this.types = types;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "AdminInfo [adminId=" + adminId + ", adminName=" + adminName
+				+ ", adminPwd=" + adminPwd + ", adminTel=" + adminTel
+				+ ", adminEmail=" + adminEmail + ", adminPic=" + adminPic
+				+ ", adminIsDel=" + adminIsDel + ", links=" + links
+				+ ", notices=" + notices + ", types=" + types + "]";
+	}
 }

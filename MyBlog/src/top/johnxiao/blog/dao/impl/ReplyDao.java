@@ -139,7 +139,7 @@ public class ReplyDao implements IReplyDao{
 		ResultSet rs=null;
 		List list=null;
 		String sql="select * from ReplyInfo where replyIsDel=0";
-		if(strWhere!=null&&"".equals(strWhere)){
+		if(strWhere!=null&&!"".equals(strWhere)){
 			sql=sql+" and "+strWhere;
 		}
 		try {

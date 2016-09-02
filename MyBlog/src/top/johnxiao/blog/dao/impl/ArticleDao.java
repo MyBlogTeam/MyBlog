@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,6 @@ public class ArticleDao implements IArticleDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean bool=false;
-//		articleTitle,articleDate,articleContent,articlePeople,articleState,articlePic,articleIsDel
 		String sql="update ArticleInfo set articleTitle=?,articleDate=?,articleContent=?,articlePeople=?,articleState=?,articlePic=?,articleIsDel=? where articleId=?";
 		try {
 			conn=DBUtil.getConn();
@@ -140,7 +140,7 @@ public class ArticleDao implements IArticleDao{
 		ResultSet rs=null;
 		List list=null;
 		
-		String sql="select * from ArticleInfo";
+		String sql="select * from ArticleInfo where articleIsDel=0";
 		try {
 			conn=DBUtil.getConn();
 			ps=conn.prepareStatement(sql);
@@ -258,6 +258,7 @@ public class ArticleDao implements IArticleDao{
 //				System.out.println("第"+i+"个:插入成功！");
 //			}
 //		}
+		
 //		查询所有
 //		List list = dao.selectAll();
 //		for(int i=0;i<list.size();i++){
@@ -278,12 +279,23 @@ public class ArticleDao implements IArticleDao{
 //			System.out.println(list.get(i).toString());
 //		}
 		
-		ArticleInfo model=dao.selectById(1);
-		model.setArticleTitle("54321");
-		if(dao.update(model)){
-			System.out.println("修改成功！");
-		}
+//		修改测试
+//		ArticleInfo model=dao.selectById(1);
+//		model.setArticleTitle("54321");
+//		if(dao.update(model)){
+//			System.out.println("修改成功！");
+//		}
 		
+//		根据Id查询
+//		ArticleInfo at=dao.selectById(5);
+//		System.out.println(at.toString());
+		
+//		分页查询测试
+//		PageList page=dao.getProcList("*", "ArticleInfo", "", "articleId", 2, 5);
+//		List list=page.getList();
+//		for(int i=0;i<list.size();i++){
+//			System.out.println(list.get(i).toString());
+//		}
 		
 	}
 }

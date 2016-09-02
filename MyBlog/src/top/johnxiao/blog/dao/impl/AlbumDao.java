@@ -1,4 +1,4 @@
-package top.johnxiao.blog.dao.impl;
+﻿package top.johnxiao.blog.dao.impl;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import top.johnxiao.blog.core.DBUtil;
+import top.johnxiao.blog.core.DaoFactory;
 import top.johnxiao.blog.dao.IAlbumDao;
 import top.johnxiao.blog.dto.AdminInfo;
 import top.johnxiao.blog.dto.AlbumInfo;
 import top.johnxiao.blog.dto.PageList;
+import top.johnxiao.blog.dto.UserInfo;
 
 public class AlbumDao implements IAlbumDao{
 
@@ -69,6 +71,7 @@ public class AlbumDao implements IAlbumDao{
 			int i = ps.executeUpdate();
 			if(i>0){
 				bool=true;
+				System.out.println("修改成功");
 			}else{
 				bool=false;
 			}
@@ -85,7 +88,7 @@ public class AlbumDao implements IAlbumDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean bool=false;
-		String sql="update albuminfo set albumIsdel=1 where albumId=?";
+		String sql="update albuminfo set albumIsDel=1 where albumId=?";
 		try {
 			conn=DBUtil.getConn();
 			ps=conn.prepareStatement(sql);
@@ -220,7 +223,7 @@ public class AlbumDao implements IAlbumDao{
 				while(rs.next()){
 					AlbumInfo album=new AlbumInfo();
 					album.setAlbumId(rs.getInt("albumId"));
-					album.setUserInfo(new UserDao().selectById(rs.getInt("userId")));
+					album.setUserInfo(DaoFactory.createUserDao().selectById(rs.getInt("userId")));
 					album.setAlbumName(rs.getString("albumName"));
 					album.setAlbumState(rs.getInt("albumState"));
 					album.setAlbumPwd(rs.getString("albumPwd"));
@@ -237,6 +240,29 @@ public class AlbumDao implements IAlbumDao{
 	return list;
 	}
 
-	
+	public static void main(String[] args) {
+		AlbumDao ad=new AlbumDao();
+//		AlbumInfo ai=new AlbumInfo();
+		
+//		UserInfo ui=new UserInfo();
+//		ui.setUserId(1);
+		
+//		ai.setUserInfo(ui);
+//		ai.setAlbumName("aaa");
+		//ad.insert(ai);
+//		ai.setAlbumId(1);
+//		ai.setAlbumState(0);
+//		ai.setAlbumPwd("123");
+//		ai.setAlbumQuest("");
+//		ai.setAlbumAnswer("");
+//		ai.setAlbumPic("");
+//		System.out.println(ad.update(ai));
+		
+//		List list=ad.selectAll();
+//		for (Object object : list) {
+//			AlbumInfo ai=(AlbumInfo) object;
+//			System.out.println(ai.getAlbumId()+"  "+ai.getAlbumName());
+//		}
+	}
 
 }

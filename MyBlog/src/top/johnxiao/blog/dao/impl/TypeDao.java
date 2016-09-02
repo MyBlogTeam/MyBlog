@@ -240,47 +240,54 @@ public class TypeDao implements ITypeDao {
 	
 	
 	public static void main(String[] args) {
-		TypeDao dao=new TypeDao();
+		TypeDao dao=(TypeDao) DaoFactory.createTypeDao();
+		
+//		插入测试
 //		TypeInfo type=new TypeInfo();
-//		type.setTypeName("教育");
+//		type.setTypeName("成人教育");
 //		type.setAdmininfo(new AdminInfo(1));
-//		dao.insert(type);
-//		
+//		boolean bool = dao.insert(type);
+//		if(bool){
+//			System.out.println("插入成功!");
+//		}
+		
+//		查询所有测试
 //		List list = dao.selectAll();
-//		List list =dao.selectByWhere("adminId=2");
 //		for(int i=0;i<list.size();i++){
-//			TypeInfo type=(TypeInfo) list.get(i);
-//			System.out.println(type.getTypeName());
-//		}
-		/*
-		PageList<TypeInfo> page =  dao.getProcList("*", "TypeInfo", "", "typeId", 1, 3);
-		for(int i=0;i<page.getList().size();i++){
-			TypeInfo type=(TypeInfo)page.getList().get(i);
-			System.out.println(type.getTypeName());
-		}
-		
-		dao.delete(1);
-		
-		TypeInfo type=dao.selectById(1);
-		System.out.println(type.getTypeName());
-		type.setTypeIsDel(false);
-		dao.update(type);
-		System.out.println("修改 成功！");
-		*/
-		AdminDao adminDao=(AdminDao) DaoFactory.createAdminDao();
-		AdminInfo admin=adminDao.selectById(1);
-		TypeInfo type=new TypeInfo();
-		type.setAdmininfo(admin);
-		type.setTypeName("军事");
-		System.out.println(type.toString());
-		
-//		if(dao.insert(type)){
-//			System.out.println("插入成功！");
+//			System.out.println(list.get(i).toString());
 //		}
 		
+//		条件查询测试
+//		List list =dao.selectByWhere("adminId=1 and typeId=4");
+//		for(int i=0;i<list.size();i++){
+//		System.out.println(list.get(i).toString());
+//		}
 		
+//		分页查询测试
+//		PageList<TypeInfo> page =  dao.getProcList("*", "TypeInfo", "", "typeId", 1, 6);
+//		for(int i=0;i<page.getList().size();i++){
+//			System.out.println(page.getList().get(i).toString());
+//		}
 		
+//		删除测试
+//		if(dao.delete(1)){
+//			System.out.println("删除成功！");
+//		}
+		
+//		根据编号查询测试
+//		TypeInfo type=dao.selectById(5);
+//		System.out.println(type.toString());
+		
+//		删除测试
+//		if(dao.delete(5)){
+//			System.out.println("删除成功！");
+//		}
+		
+//		修改测试
+//		type.setTypeIsDel(false);
+//		if(dao.update(type)){
+//			System.out.println("修改 成功！");
+//		}
 		
 	}
-
 }

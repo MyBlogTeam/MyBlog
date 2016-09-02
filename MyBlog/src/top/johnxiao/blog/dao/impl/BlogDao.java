@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import top.johnxiao.blog.core.DBUtil;
+import top.johnxiao.blog.core.DaoFactory;
 import top.johnxiao.blog.dao.IBlogDao;
 import top.johnxiao.blog.dto.AdminInfo;
 import top.johnxiao.blog.dto.BlogInfo;
@@ -224,7 +225,7 @@ public class BlogDao implements IBlogDao{
 				while (rs.next()) {
 					BlogInfo blog = new BlogInfo();
 					blog.setBlogId(rs.getInt("blogId"));
-					blog.setUserId(new UserDao().selectById(rs.getInt("userId")));
+					blog.setUserId(DaoFactory.createUserDao().selectById(rs.getInt("userId")));
 					blog.setBlogName(rs.getString("blogName"));
 					blog.setBlogDesc(rs.getString("blogDesc"));
 					blog.setBlogDate(rs.getString("blogDate"));

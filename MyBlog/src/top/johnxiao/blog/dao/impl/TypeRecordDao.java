@@ -25,7 +25,7 @@ public class TypeRecordDao implements ITypeRecordDao{
 		PreparedStatement ps = null;
 		boolean bool = false;
 
-		String sql = "insert into TypeRecord(typeId,Typ_typeId,trIsDel) values(?,?,0)";
+		String sql = "insert into Type_Record(typeId,Typ_typeId,trIsDel) values(?,?,0)";
 		try {
 			TypeDao tdao=(TypeDao) DaoFactory.createTypeDao();
 			conn = DBUtil.getConn();
@@ -48,7 +48,7 @@ public class TypeRecordDao implements ITypeRecordDao{
 		PreparedStatement ps = null;
 		boolean bool = false;
 
-		String sql = "update TypeRecord set typeId=?,Typ_typeId=?,trIsDel=? where tr=?";
+		String sql = "update Type_Record set typeId=?,Typ_typeId=?,trIsDel=? where tr=?";
 		try {
 			TypeDao tdao=(TypeDao) DaoFactory.createTypeDao();
 			conn = DBUtil.getConn();
@@ -73,7 +73,7 @@ public class TypeRecordDao implements ITypeRecordDao{
 		PreparedStatement ps = null;
 		boolean bool = false;
 
-		String sql = "update TypeRecord trIsDel=1 where trId=?";
+		String sql = "update Type_Record set trIsDel=1 where trId=?";
 		try {
 			TypeDao tdao=(TypeDao) DaoFactory.createTypeDao();
 			conn = DBUtil.getConn();
@@ -95,7 +95,7 @@ public class TypeRecordDao implements ITypeRecordDao{
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		TypeRecord tr=null;
-		String sql="select * from TypeRecord where trIsDel=0 and trId=?";
+		String sql="select * from Type_Record where trIsDel=0 and trId=?";
 		try {
 			conn=DBUtil.getConn();
 			ps=conn.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class TypeRecordDao implements ITypeRecordDao{
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		List list=null;
-		String sql="select * from TypeRecord where trIsDel=0";
+		String sql="select * from Type_Record where trIsDel=0";
 		try {
 			conn=DBUtil.getConn();
 			ps=conn.prepareStatement(sql);
@@ -141,8 +141,8 @@ public class TypeRecordDao implements ITypeRecordDao{
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		List list=null;
-		String sql="select * from TypeRecord where trIsDel=0";
-		if(strWhere!=null&&"".equals(strWhere)){
+		String sql="select * from Type_Record where trIsDel=0";
+		if(strWhere!=null&&!"".equals(strWhere)){
 			sql=sql+" and "+strWhere;
 		}
 		try {
@@ -220,6 +220,42 @@ public class TypeRecordDao implements ITypeRecordDao{
 			e.printStackTrace();
 		}
 	return list;
+	}
+	
+	
+	public static void main(String[] args) {
+		TypeRecordDao trdao=(TypeRecordDao) DaoFactory.createTRDao();
+		TypeDao tdao=(TypeDao) DaoFactory.createTypeDao();
+		
+//		插入测试
+//		TypeRecord model=new TypeRecord();
+//		TypeInfo ftr=tdao.selectById(1);
+//		TypeInfo str=tdao.selectById(17);
+//		model.setTyp_typeId(ftr);
+//		model.setTypeId(str);
+//		if(trdao.insert(model)){
+//			System.out.println("插入成功！");
+//		}
+		
+//		查询所有测试
+//		List list=trdao.selectAll();
+//		for(int i=0;i<list.size();i++){
+//			System.out.println(list.get(i).toString());
+//		}
+		
+//		根据编号查询测试
+//		System.out.println(trdao.selectById(1).toString());
+		
+//		条件查询测试
+//		System.out.println(trdao.selectByWhere("trId=5").toString());
+		
+//		删除测试
+//		if(trdao.delete(1)){
+//			System.out.println("删除成功！");
+//		}
+		
+		
+		
 	}
 
 }

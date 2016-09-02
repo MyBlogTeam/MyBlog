@@ -136,7 +136,7 @@ public class TypeArticleDao implements ITypeArticleDao{
 		ResultSet rs=null;
 		List list = null;
 		String sql="select * from Type_Article where atIsDel=0";
-		if(strWhere!=null&&"".equals(strWhere)){
+		if(strWhere!=null&&!"".equals(strWhere)){
 			sql=sql+" and "+strWhere;
 		}
 		try {

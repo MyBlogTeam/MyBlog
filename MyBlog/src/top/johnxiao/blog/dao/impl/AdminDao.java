@@ -151,7 +151,7 @@ public class AdminDao implements IAdminDao{
 		ResultSet rs=null;
 		List list=null;
 		String sql="select * from AdminInfo where adminIsDel=0";
-		if(strWhere!=null&&"".equals(strWhere)){
+		if(strWhere!=null&&!"".equals(strWhere)){
 			sql=sql+" and "+strWhere;
 		}
 		try {
@@ -251,7 +251,7 @@ public class AdminDao implements IAdminDao{
 	public static void main(String[] args) {
 		AdminDao dao=new AdminDao();
 //		AdminInfo admin=new AdminInfo();
-//		admin.setAdminId(2);
+////		admin.setAdminId(2);
 //		admin.setAdminName("zhangsan");
 //		admin.setAdminPwd("zhangsan");
 //		admin.setAdminTel("123456");
@@ -263,20 +263,22 @@ public class AdminDao implements IAdminDao{
 //			System.out.println("插入失败！");
 //		}
 		
-//		List list = dao.selectAll();
-//		for (int i=0;i<list.size();i++) {
-//			System.out.println(list.get(i));
-//		}
-//		dao.update(admin);
-//		dao.delete(2);
-		
-		PageList page = dao.getProcList("*", "adminInfo", "adminIsDel=0", "adminId", 1, 10);
-		System.out.println("sumCount:"+page.getSumCount());
-		System.out.println("pageCount:"+page.getPageCount());
-		for(int i=0;i<page.getList().size();i++){
-			AdminInfo admin=(AdminInfo) page.getList().get(i);
-			System.out.println(admin.getAdminId()+" | "+admin.getAdminName());
+		List list = dao.selectAll();
+		for (int i=0;i<list.size();i++) {
+			System.out.println(list.get(i).toString());
 		}
+//		dao.update(admin);
+		if(dao.delete(2)){
+			System.out.println("删除成功！");
+		}
+		
+//		PageList page = dao.getProcList("*", "adminInfo", "adminIsDel=0", "adminId", 1, 10);
+//		System.out.println("sumCount:"+page.getSumCount());
+//		System.out.println("pageCount:"+page.getPageCount());
+//		for(int i=0;i<page.getList().size();i++){
+//			AdminInfo admin=(AdminInfo) page.getList().get(i);
+//			System.out.println(admin.getAdminId()+" | "+admin.getAdminName());
+//		}
 		
 		
 	}

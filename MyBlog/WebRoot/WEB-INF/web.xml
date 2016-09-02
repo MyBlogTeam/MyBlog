@@ -9,7 +9,7 @@
   
   <context-param>
   	<param-name>URL</param-name>
-  	<param-value>jdbc:mysql://localhost:3306/myblog</param-value>
+  	<param-value>jdbc:mysql://localhost:3306/myblog?userUnicode=true&characterEncoding=UTF-8</param-value>
   </context-param>
   
   <context-param>

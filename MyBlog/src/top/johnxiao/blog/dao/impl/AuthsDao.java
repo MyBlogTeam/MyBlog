@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import top.johnxiao.blog.core.DBUtil;
+import top.johnxiao.blog.core.DaoFactory;
 import top.johnxiao.blog.dao.IAuthsDao;
 import top.johnxiao.blog.dto.AdminInfo;
 import top.johnxiao.blog.dto.AuthsInfo;
 import top.johnxiao.blog.dto.PageList;
+import top.johnxiao.blog.dto.UserInfo;
 
 public class AuthsDao implements IAuthsDao{
 
@@ -50,7 +52,7 @@ public class AuthsDao implements IAuthsDao{
 		Connection conn=null;
 		PreparedStatement ps=null;
 		boolean bool=false;
-		String sql="update authsinfo set userId=?,authsType=?,authsToken=?,authsExpires=?,authIsDel=? where authsId=?";
+		String sql="update authsinfo set userId=?,authsType=?,authsToken=?,authsExpires=?,authsIsDel=? where authsId=?";
 		conn= DBUtil.getConn();
 		try {
 			ps=conn.prepareStatement(sql);
@@ -215,7 +217,7 @@ public class AuthsDao implements IAuthsDao{
 				while(rs.next()){
 					AuthsInfo auths=new AuthsInfo();
 					auths.setAuthsId(rs.getInt("authsId"));
-					auths.setUser(new UserDao().selectById(rs.getInt("userId")));
+					auths.setUser(DaoFactory.createUserDao().selectById(rs.getInt("userId")));
 					auths.setAuthsType(rs.getString("authsType"));
 					auths.setAuthsToken(rs.getString("authsToken"));
 					auths.setAuthsExpires(rs.getString("authsExpires"));
@@ -228,5 +230,24 @@ public class AuthsDao implements IAuthsDao{
 		}
 	return list;
 	}
-
+	
+	public static void main(String[] args) {
+		AuthsDao ad=new AuthsDao();
+		
+//		AuthsInfo ai=new AuthsInfo();
+//		UserInfo ui=new UserInfo();
+//		ui.setUserId(1);
+//		ai.setUser(ui);
+		//ad.insert(ai);
+//		ai.setAuthsId(1);
+//		ai.setAuthsType("a");
+//		ad.update(ai);
+		
+		List list=ad.selectAll();
+		for (Object object : list) {
+			AuthsInfo ai=(AuthsInfo) object;
+			System.out.println(ai.getAuthsId()+"  "+ai.getAuthsType());
+		}
+		
+	}
 }

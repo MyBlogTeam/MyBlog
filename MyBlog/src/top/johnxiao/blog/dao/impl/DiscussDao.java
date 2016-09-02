@@ -8,10 +8,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import javax.xml.registry.infomodel.User;
 
 import top.johnxiao.blog.core.DBUtil;
 import top.johnxiao.blog.core.DaoFactory;
@@ -149,7 +146,7 @@ public class DiscussDao implements IDiscussDao{
 		List list=null;
 		
 		String sql="select * from DiscussInfo where discussIsDel=0 ";
-		if(strWhere!=null&&"".equals(strWhere)){
+		if(strWhere!=null&&!"".equals(strWhere)){
 			sql=sql+" and "+strWhere;
 		}
 		try {
