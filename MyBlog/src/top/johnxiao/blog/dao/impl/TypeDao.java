@@ -264,7 +264,7 @@ public class TypeDao implements ITypeDao {
 //		}
 		
 //		分页查询测试
-//		PageList<TypeInfo> page =  dao.getProcList("*", "TypeInfo", "", "typeId", 1, 6);
+//		PageList<TypeInfo> page =  dao.getProcList("*", "TypeInfo", "", "typeId", 2, 5);
 //		for(int i=0;i<page.getList().size();i++){
 //			System.out.println(page.getList().get(i).toString());
 //		}

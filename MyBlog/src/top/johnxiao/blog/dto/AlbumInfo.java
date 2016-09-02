@@ -143,6 +143,15 @@ public List<PhotoInfo> getPhotos() {
 public void setPhotos(List<PhotoInfo> photos) {
 	this.photos = photos;
 }
-	
+
+
+@Override
+public String toString() {
+	return "AlbumInfo [albumId=" + albumId + ", userInfo=" + userInfo
+			+ ", albumName=" + albumName + ", albumState=" + albumState
+			+ ", albumPwd=" + albumPwd + ", albumQuest=" + albumQuest
+			+ ", albumAnswer=" + albumAnswer + ", albumPic=" + albumPic
+			+ ", albumIsDel=" + albumIsDel + ", photos=" + photos + "]";
+}
 
 }

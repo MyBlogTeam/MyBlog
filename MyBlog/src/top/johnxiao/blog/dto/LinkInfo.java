@@ -91,6 +91,13 @@ public void setLinkIsDel(boolean linkIsDel) {
 	this.linkIsDel = linkIsDel;
 }
 
+@Override
+public String toString() {
+	return "LinkInfo [linkId=" + linkId + ", admin=" + admin + ", linkName="
+			+ linkName + ", linkUrl=" + linkUrl + ", linkLogo=" + linkLogo
+			+ ", showOrder=" + showOrder + ", linkIsDel=" + linkIsDel + "]";
+}
+
 
 
 }

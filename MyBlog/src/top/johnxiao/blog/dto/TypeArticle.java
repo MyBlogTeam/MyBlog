@@ -67,4 +67,12 @@ public void setArticleinfo(ArticleInfo articleinfo) {
 	this.articleinfo = articleinfo;
 }
 
+
+@Override
+public String toString() {
+	return "TypeArticle [atId=" + atId + ", atIsDel=" + atIsDel + ", typeinfo="
+			+ typeinfo + ", articleinfo=" + articleinfo + "]";
+}
+
+
 }

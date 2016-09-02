@@ -80,5 +80,5 @@ public class ReplyInfo implements Serializable{
 				+ ", replyDate=" + replyDate + ", replyIsDel=" + replyIsDel
 				+ "]";
 	}
-
+	
 }

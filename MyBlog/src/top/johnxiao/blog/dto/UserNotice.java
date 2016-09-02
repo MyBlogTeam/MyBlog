@@ -57,4 +57,10 @@ public void setUnIsDel(boolean unIsDel) {
 	this.unIsDel = unIsDel;
 }
 
+@Override
+public String toString() {
+	return "UserNotice [unId=" + unId + ", noticeinfo=" + noticeinfo
+			+ ", userinfo=" + userinfo + ", unIsDel=" + unIsDel + "]";
+}
+
 }

@@ -67,4 +67,11 @@ public void setLaIsDel(boolean laIsDel) {
 }
 
 
+@Override
+public String toString() {
+	return "LabelArticle [laId=" + laId + ", article=" + article + ", label="
+			+ label + ", laIsDel=" + laIsDel + "]";
+}
+
+
 }

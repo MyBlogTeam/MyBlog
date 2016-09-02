@@ -76,6 +76,15 @@ public class AuthsInfo implements Serializable{
 	public void setAuthsIsDel(boolean authsIsDel) {
 		this.authsIsDel = authsIsDel;
 	}
+
+	@Override
+	public String toString() {
+		return "AuthsInfo [authsId=" + authsId + ", user=" + user
+				+ ", authsType=" + authsType + ", authsToken=" + authsToken
+				+ ", authsExpires=" + authsExpires + ", authsIsDel="
+				+ authsIsDel + "]";
+	}
+
 	
 	
 }

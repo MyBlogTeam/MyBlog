@@ -66,5 +66,12 @@ public void setLabelArticles(List<LabelArticle> labelArticles) {
 	this.labelArticles = labelArticles;
 }
 
+@Override
+public String toString() {
+	return "LabelInfo [labelId=" + labelId + ", user=" + user + ", labelName="
+			+ labelName + ", labelIsDel=" + labelIsDel + ", labelArticles="
+			+ labelArticles + "]";
+}
+
 
 }

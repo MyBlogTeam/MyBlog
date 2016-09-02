@@ -272,7 +272,10 @@ public class UserDao implements IUserDao {
 		ui.setUserRank(1);
 		ui.setUserState(1);
 		ui.setUserIsDel(false);
-		ud.insert(ui);
+		boolean bool=ud.insert(ui);
+		if(bool){
+			System.out.println("插入成功！");
+		}
 
 //		 UserInfo ui=ud.selectById(1);
 //		 System.out.println(ui.getUserId()+"  "+ui.getUserName());

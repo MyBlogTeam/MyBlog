@@ -106,4 +106,13 @@ public void setFileIsDel(boolean fileIsDel) {
 }
 
 
+@Override
+public String toString() {
+	return "FileInfo [fileId=" + fileId + ", user=" + user + ", fileName="
+			+ fileName + ", fileDesc=" + fileDesc + ", fileDate=" + fileDate
+			+ ", filePath=" + filePath + ", fileImg=" + fileImg
+			+ ", fileIsDel=" + fileIsDel + "]";
+}
+
+
 }

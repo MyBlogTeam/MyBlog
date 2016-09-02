@@ -82,4 +82,12 @@ public void setLikeIsDel(boolean likeIsDel) {
 }
 
 
+@Override
+public String toString() {
+	return "ClickLikeInfo [likeId=" + likeId + ", userId=" + userId
+			+ ", likeType=" + likeType + ", likedId=" + likedId + ", likeDate="
+			+ likeDate + ", likeIsDel=" + likeIsDel + "]";
+}
+
+
 }

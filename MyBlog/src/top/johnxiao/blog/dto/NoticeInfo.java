@@ -108,4 +108,13 @@ public void setUserNotices(List<UserNotice> userNotices) {
 }
 
 
+@Override
+public String toString() {
+	return "NoticeInfo [noticeId=" + noticeId + ", admininfo=" + admininfo
+			+ ", noticeTopic=" + noticeTopic + ", noticeContent="
+			+ noticeContent + ", noticeDate=" + noticeDate + ", noticeIsDel="
+			+ noticeIsDel + ", userNotices=" + userNotices + "]";
+}
+
+
 }

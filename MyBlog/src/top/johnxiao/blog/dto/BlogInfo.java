@@ -130,5 +130,13 @@ public boolean getBlogIsDel() {
 public void setBlogIsDel(boolean blogIsDel) {
 	this.blogIsDel = blogIsDel;
 }
+
+@Override
+public String toString() {
+	return "BlogInfo [blogId=" + blogId + ", userId=" + userId + ", blogName="
+			+ blogName + ", blogDesc=" + blogDesc + ", blogState=" + blogState
+			+ ", blogDate=" + blogDate + ", blogMusic=" + blogMusic
+			+ ", blogPic=" + blogPic + ", blogIsDel=" + blogIsDel + "]";
+}
 	
 }

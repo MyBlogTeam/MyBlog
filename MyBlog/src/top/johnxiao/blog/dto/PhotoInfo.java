@@ -94,4 +94,14 @@ public void setPhotoIsDel(boolean photoIsDel) {
 	this.photoIsDel = photoIsDel;
 }
 
+
+@Override
+public String toString() {
+	return "PhotoInfo [photoId=" + photoId + ", albuminfo=" + albuminfo
+			+ ", photoName=" + photoName + ", photoPath=" + photoPath
+			+ ", photoDesc=" + photoDesc + ", photoDate=" + photoDate
+			+ ", photoIsDel=" + photoIsDel + "]";
+}
+
+
 }

@@ -93,5 +93,14 @@ public void setMsgIsDel(Boolean msgIsDel) {
 	this.msgIsDel = msgIsDel;
 }
 
+
+@Override
+public String toString() {
+	return "MessageInfo [messageId=" + messageId + ", sender=" + sender
+			+ ", receiver=" + receiver + ", messageContent=" + messageContent
+			+ ", messageDate=" + messageDate + ", msgIsDel=" + msgIsDel + "]";
+}
+
+
 	
 }

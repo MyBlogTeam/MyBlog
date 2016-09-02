@@ -76,4 +76,13 @@ public void setCollectIsDel(boolean collectIsDel) {
 }
 
 
+@Override
+public String toString() {
+	return "CollectInfo [collectId=" + collectId + ", user=" + user
+			+ ", article=" + article + ", collectDate=" + collectDate
+			+ ", collectIsDel=" + collectIsDel + "]";
+}
+
+
+
 }
