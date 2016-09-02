@@ -26,22 +26,16 @@ public class TypeDao implements ITypeDao {
 		TypeInfo type=null;
 		AdminInfo admin=null;
 
-		String sql = "insert into TypeInfo(Typ_typeId,adminId,typeName,typeDesc,typeIsDel) values(?,?,?,?,0)";
+		String sql = "insert into TypeInfo(adminId,typeName,typeDesc,typeIsDel) values(?,?,?,0)";
 		try {
-			type=selectById(model.getTypeinfo().getTypeId());
 			admin=DaoFactory.createAdminDao().selectById(model.getAdmininfo().getAdminId());
 			conn = DBUtil.getConn();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, type.getTypeId());
-			ps.setInt(2, admin.getAdminId());
-			ps.setString(3, model.getTypeName());
-			ps.setString(4, model.getTypeDesc());
+			ps.setInt(1, admin.getAdminId());
+			ps.setString(2, model.getTypeName());
+			ps.setString(3, model.getTypeDesc());
 			int i = ps.executeUpdate();
-			if (i > 0) {
-				bool = true;
-			} else {
-				bool = false;
-			}
+			bool=i>0?true:false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -56,22 +50,17 @@ public class TypeDao implements ITypeDao {
 		PreparedStatement ps = null;
 		boolean bool = false;
 
-		String sql = "update TypeInfo set Typ_typeId=?,adminId=?,typeName=?,typeDesc=?,typeIsDel=? where typeId=?";
+		String sql = "update TypeInfo set adminId=?,typeName=?,typeDesc=?,typeIsDel=? where typeId=?";
 		try {
 			conn = DBUtil.getConn();
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, model.getTypeinfo().getTypeId());
-			ps.setInt(2, model.getAdmininfo().getAdminId());
-			ps.setString(3, model.getTypeName());
-			ps.setString(4, model.getTypeDesc());
-			ps.setBoolean(5, model.getTypeIsDel());
-			ps.setInt(6, model.getTypeId());
+			ps.setInt(1, model.getAdmininfo().getAdminId());
+			ps.setString(2, model.getTypeName());
+			ps.setString(3, model.getTypeDesc());
+			ps.setBoolean(4, model.getTypeIsDel());
+			ps.setInt(5, model.getTypeId());
 			int i = ps.executeUpdate();
-			if (i > 0) {
-				bool = true;
-			} else {
-				bool = false;
-			}
+			bool=i>0?true:false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -237,7 +226,6 @@ public class TypeDao implements ITypeDao {
 			while (rs.next()) {
 				TypeInfo type = new TypeInfo();
 				type.setTypeId(rs.getInt("typeId"));
-				type.setTypeinfo(new TypeInfo(rs.getInt("Typ_typeId")));
 				type.setAdmininfo(new AdminInfo(rs.getInt("adminId")));
 				type.setTypeName(rs.getString("typeName"));
 				type.setTypeDesc(rs.getString("typeDesc"));

@@ -5,15 +5,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import javax.xml.registry.infomodel.User;
 
 import top.johnxiao.blog.core.DBUtil;
 import top.johnxiao.blog.core.DaoFactory;
 import top.johnxiao.blog.dao.IDiscussDao;
+import top.johnxiao.blog.dto.ArticleInfo;
 import top.johnxiao.blog.dto.DiscussInfo;
 import top.johnxiao.blog.dto.PageList;
+import top.johnxiao.blog.dto.UserInfo;
 
 public class DiscussDao implements IDiscussDao{
 
@@ -103,7 +109,9 @@ public class DiscussDao implements IDiscussDao{
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
-			discuss=getModel(rs).get(0);
+			if(rs.next()){
+				discuss=getModel(rs).get(0);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -210,9 +218,9 @@ public class DiscussDao implements IDiscussDao{
 				discuss.setDiscussId(rs.getInt("discussId"));
 				discuss.setArticle(articleDao.selectById(rs.getInt("articleId")));
 				discuss.setUser(userDao.selectById(rs.getInt("userId")));
-				discuss.setDiscuss(discuss);
+//				discuss.setDiscuss(discuss);
 				discuss.setDiscussContent(rs.getString("discussContent"));
-				discuss.setDiscussDate(rs.getTimestamp("discussContent"));
+				discuss.setDiscussDate(rs.getTimestamp("discussDate"));
 				discuss.setDiscussIsDel(rs.getBoolean("discussIsDel"));
 				list.add(discuss);
 			}
@@ -220,6 +228,39 @@ public class DiscussDao implements IDiscussDao{
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	
+	public static void main(String[] args) {
+		DiscussDao dao=(DiscussDao) DaoFactory.createDiscussDao();
+		
+		ArticleDao adao=(ArticleDao) DaoFactory.createArticleDao();
+		UserDao udao=(UserDao) DaoFactory.createUserDao();
+		
+		DiscussInfo model=new DiscussInfo();
+		model.setDiscussDate(new Timestamp(System.currentTimeMillis()));
+		ArticleInfo art=adao.selectById(1);
+		UserInfo user=udao.selectById(1);
+		model.setDiscussContent("hahahahaha");
+		model.setArticle(art);
+		System.out.println(art.toString());
+		System.out.println(user.toString());
+		model.setUser(user);
+		boolean bool = dao.insert(model);
+		if(bool){
+			System.out.println("插入成功！");
+		}
+		
+//		List list = dao.selectAll();
+//		for(int i=0;i<list.size();i++){
+//			System.out.println(list.get(i).toString());
+//		}
+//		
+//		DiscussInfo dis=dao.selectById(1);
+//		System.out.println(dis.toString());
+//		dis.setDiscussIsDel(false);
+//		dao.delete(1);
+//		dao.update(dis);
 	}
 
 

@@ -15,8 +15,10 @@ import top.johnxiao.blog.dao.ILinkDao;
 import top.johnxiao.blog.dao.IMessageDao;
 import top.johnxiao.blog.dao.INoticeDao;
 import top.johnxiao.blog.dao.IPhotoDao;
+import top.johnxiao.blog.dao.IReplyDao;
 import top.johnxiao.blog.dao.ITypeArticleDao;
 import top.johnxiao.blog.dao.ITypeDao;
+import top.johnxiao.blog.dao.ITypeRecordDao;
 import top.johnxiao.blog.dao.IUserDao;
 import top.johnxiao.blog.dao.IUserNoticeDao;
 import top.johnxiao.blog.dao.impl.AdminDao;
@@ -34,8 +36,10 @@ import top.johnxiao.blog.dao.impl.LinkDao;
 import top.johnxiao.blog.dao.impl.MessageDao;
 import top.johnxiao.blog.dao.impl.NoticeDao;
 import top.johnxiao.blog.dao.impl.PhotoDao;
+import top.johnxiao.blog.dao.impl.ReplyDao;
 import top.johnxiao.blog.dao.impl.TypeArticleDao;
 import top.johnxiao.blog.dao.impl.TypeDao;
+import top.johnxiao.blog.dao.impl.TypeRecordDao;
 import top.johnxiao.blog.dao.impl.UserDao;
 import top.johnxiao.blog.dao.impl.UserNoticeDao;
 
@@ -115,6 +119,14 @@ public class DaoFactory {
 	
 	public static IUserNoticeDao createUNDao(){
 		return new UserNoticeDao();
+	}
+	
+	public static IReplyDao createReplyDao(){
+		return new ReplyDao();
+	}
+	
+	public static ITypeRecordDao createTRDao(){
+		return new TypeRecordDao();
 	}
 
 }

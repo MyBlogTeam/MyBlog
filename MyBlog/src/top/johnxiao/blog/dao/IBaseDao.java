@@ -3,7 +3,6 @@ package top.johnxiao.blog.dao;
 import java.sql.ResultSet;
 import java.util.List;
 
-import top.johnxiao.blog.dto.AdminInfo;
 import top.johnxiao.blog.dto.PageList;
 
 public interface IBaseDao<T> {
