@@ -71,10 +71,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                         	<li>
-                                <a class="J_menuItem" href="bgEmpty.html" data-index="0">空白页面</a>
+                                <a class="J_menuItem" href="bgEmpty.jsp" data-index="0">空白页面</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v1.html">主页实例一</a>
+                                <a class="J_menuItem" href="#">主页实例一</a>
                             </li>
                         </ul>
                     </li>
@@ -88,10 +88,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="../back/bgAdmin.html">管理员管理</a>
+                                <a class="J_menuItem" href="../back/bgAdmin.jsp">管理员管理</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="../back/bgUser.html">用户管理</a>
+                                <a class="J_menuItem" href="../back/bgUser.jsp">用户管理</a>
                             </li>
                         </ul>
                     </li>

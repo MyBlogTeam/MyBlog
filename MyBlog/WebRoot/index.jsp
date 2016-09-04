@@ -22,6 +22,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <img alt="验证码" src="http://localhost:8080/MyBlog/ValiCodeServlet">
   </body>
 </html>
