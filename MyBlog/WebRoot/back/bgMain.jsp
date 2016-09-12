@@ -88,7 +88,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="../back/bgAdmin.jsp">管理员管理</a>
+                                <a class="J_menuItem" href="../AdminServlet.do?action=selectAll">管理员管理</a>
+                            </li>
+                            <li>
+                            	<a class="J_menuItem" href="../back/bgAdmin.jsp">管理员管理2</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="../back/bgUser.jsp">用户管理</a>
@@ -292,9 +295,6 @@
                                     </div>
                                 </li>
                             </ul>
-                        </li>
-                        <li class="hidden-xs">
-                            <a href="index_v1.html" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 购买</a>
                         </li>
                         <li class="dropdown hidden-xs">
                             <a class="right-sidebar-toggle" aria-expanded="false">
@@ -766,5 +766,4 @@
 </body>
 
 
-<!-- Mirrored from www.zi-han.net/theme/hplus/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:17:11 GMT -->
 </html>
